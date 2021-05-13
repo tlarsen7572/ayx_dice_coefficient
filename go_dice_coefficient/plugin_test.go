@@ -51,6 +51,26 @@ func TestScoreCalc(t *testing.T) {
 	if math.Abs(score-0.83333) > 0.0001 {
 		t.Fatalf(`expected 0.833333333333333 but got %v`, score)
 	}
+	score = dc.CalculateDiceCoefficient(`Hello World`, `How are you`)
+	if score != 0 {
+		t.Fatalf(`expected 0 but got %v`, score)
+	}
+	score = dc.CalculateDiceCoefficient(`night`, `nacht`)
+	if math.Abs(score-0.25) > 0.0001 {
+		t.Fatalf(`expected 0.25 but got %v`, score)
+	}
+	score = dc.CalculateDiceCoefficient(`AA`, `AAAA`)
+	if math.Abs(score-0.5) > 0.0001 {
+		t.Fatalf(`expected 0.5 but got %v`, score)
+	}
+	score = dc.CalculateDiceCoefficient(`AAAA`, `AAAAAA`)
+	if math.Abs(score-0.75) > 0.0001 {
+		t.Fatalf(`expected 0.75 but got %v`, score)
+	}
+	score = dc.CalculateDiceCoefficient(`12121212`, `12345678`)
+	if math.Abs(score-0.142857) > 0.0001 {
+		t.Fatalf(`expected 0.142857 but got %v`, score)
+	}
 }
 
 func TestEndToEnd(t *testing.T) {
@@ -65,8 +85,20 @@ func TestEndToEnd(t *testing.T) {
 	output := runner.CaptureOutgoingAnchor(`Output`)
 	runner.SimulateLifecycle()
 
-	_, ok := output.Data[`Match Score`]
+	scores, ok := output.Data[`Match Score`]
 	if !ok {
 		t.Fatalf(`expected a Match Score field but it did not exist`)
+	}
+
+	if len(scores) != 6 {
+		t.Fatalf(`expected 6 rows but got %v`, len(scores))
+	}
+
+	if scores[0] != 0.25 {
+		t.Fatalf(`expected first row score to be 0.25 but got %v`, scores[0])
+	}
+
+	if scores[3] != 0.0 {
+		t.Fatalf(`expected fourth row score to be 0 but got %v`, scores[3])
 	}
 }

@@ -53,7 +53,21 @@ func (p *DiceCoefficientPlugin) OnInputConnectionOpened(connection sdk.InputConn
 }
 
 func (p *DiceCoefficientPlugin) OnRecordPacket(connection sdk.InputConnection) {
-
+	packet := connection.Read()
+	for packet.Next() {
+		p.outgoingInfo.CopyFrom(packet.Record())
+		text1, isNull1 := p.text1.GetValue(packet.Record())
+		text2, isNull2 := p.text2.GetValue(packet.Record())
+		if isNull1 || isNull2 {
+			p.scoreField.SetFloat(0)
+			p.output.Write()
+			continue
+		}
+		score := CalculateDiceCoefficient(text1, text2)
+		p.scoreField.SetFloat(score)
+		p.output.Write()
+	}
+	p.output.UpdateProgress(connection.Progress())
 }
 
 func (p *DiceCoefficientPlugin) OnComplete() {
