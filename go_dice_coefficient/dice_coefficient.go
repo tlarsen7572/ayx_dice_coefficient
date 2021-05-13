@@ -16,6 +16,20 @@ func (b bigram) lessThan(other bigram) bool {
 		(b.digit1 == other.digit1 && b.digit2 < other.digit2)
 }
 
+func generateSortedBigrams(text string) []bigram {
+	start := 0
+	runes := []rune(text)
+	bigrams := make([]bigram, len(runes)-1)
+	for end := 1; end < len(runes); end++ {
+		bigrams[start] = bigram{runes[start], runes[end]}
+		start++
+	}
+	sort.Slice(bigrams, func(i int, j int) bool {
+		return bigrams[i].lessThan(bigrams[j])
+	})
+	return bigrams
+}
+
 func CalculateDiceCoefficient(text1 string, text2 string) float64 {
 	if text1 == `` || text2 == `` {
 		return 0
@@ -26,27 +40,8 @@ func CalculateDiceCoefficient(text1 string, text2 string) float64 {
 	if len(text1) == 0 || len(text2) == 0 {
 		return 0
 	}
-	start := 0
-	runes1 := []rune(text1)
-	bigrams1 := make([]bigram, len(runes1)-1)
-	for end := 1; end < len(runes1); end++ {
-		bigrams1[start] = bigram{runes1[start], runes1[end]}
-		start++
-	}
-	sort.Slice(bigrams1, func(i int, j int) bool {
-		return bigrams1[i].lessThan(bigrams1[j])
-	})
-
-	start = 0
-	runes2 := []rune(text2)
-	bigrams2 := make([]bigram, len(runes2)-1)
-	for end := 1; end < len(runes2); end++ {
-		bigrams2[start] = bigram{runes2[start], runes2[end]}
-		start++
-	}
-	sort.Slice(bigrams2, func(i int, j int) bool {
-		return bigrams2[i].lessThan(bigrams2[j])
-	})
+	bigrams1 := generateSortedBigrams(text1)
+	bigrams2 := generateSortedBigrams(text2)
 
 	i1 := 0
 	i2 := 0
