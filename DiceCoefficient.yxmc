@@ -27,7 +27,7 @@
           <Optional value="False" />
           <TextInput>
             <Configuration>
-              <NumRows value="8" />
+              <NumRows value="9" />
               <Fields>
                 <Field name="Text1" />
                 <Field name="Text2" />
@@ -59,11 +59,15 @@
                 </r>
                 <r>
                   <c>AA</c>
-                  <c>AAA</c>
+                  <c>AAAA</c>
                 </r>
                 <r>
                   <c>AAAA</c>
                   <c>AAAAAA</c>
+                </r>
+                <r>
+                  <c>12121212</c>
+                  <c>12345678</c>
                 </r>
               </Data>
             </Configuration>
@@ -102,13 +106,13 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <WorkflowName>c:\repositories\dice_coefficient\dicecoefficient.yxmc</WorkflowName>
+          <WorkflowName>c:\repositories\ayx_dice_coefficient\dicecoefficient.yxmc</WorkflowName>
           <JupyterGuidDir>9d8bcf1f-00eb-4517-8a46-1c6366ca9edf</JupyterGuidDir>
           <JupyterProduction>false</JupyterProduction>
           <vEnvName>designerbasetools_venv</vEnvName>
           <DefaultVenv>1</DefaultVenv>
           <productionModeScript />
-          <Port>56835</Port>
+          <Port>60724</Port>
           <JupyterGuidCopy />
           <LastExecutedByEngineVersion>2021.1.4.26400</LastExecutedByEngineVersion>
           <Notebook><![CDATA[{"cells":[{"cell_type":"markdown","metadata":{"ayx":{"cell_class":"text_cell","cell_css":"border: 3px solid #357; margin: 4px; background: #fbffff","cell_type":"markdown","contents_keyword":"Alteryx.help()","first_line":"Run `Alteryx.help()` for info about useful functions.","label":"info"}},"source":["Run `Alteryx.help()` for info about useful functions.  \n","i.e., `Alteryx.read(\"#1\")`, `Alteryx.write(df,1)`, `Alteryx.getWorkflowConstant(\"Engine.WorkflowDirectory\")`"]},{"cell_type":"code","execution_count":1,"metadata":{},"outputs":[],"source":["def dice_coefficient(a,b):\n","    if a is None or b is None: return 0.0\n","    if not len(a) or not len(b): return 0.0\n","    \"\"\" quick case for true duplicates \"\"\"\n","    if a == b: return 1.0\n","    \"\"\" if a != b, and a or b are single chars, then they can't possibly match \"\"\"\n","    if len(a) == 1 or len(b) == 1: return 0.0\n","    \n","    \"\"\" use python list comprehension, preferred over list.append() \"\"\"\n","    a_bigram_list = [a[i:i+2] for i in range(len(a)-1)]\n","    b_bigram_list = [b[i:i+2] for i in range(len(b)-1)]\n","    \n","    a_bigram_list.sort()\n","    b_bigram_list.sort()\n","    \n","    # assignments to save function calls\n","    lena = len(a_bigram_list)\n","    lenb = len(b_bigram_list)\n","    # initialize match counters\n","    matches = i = j = 0\n","    while (i < lena and j < lenb):\n","        if a_bigram_list[i] == b_bigram_list[j]:\n","            matches += 1\n","            i += 1\n","            j += 1\n","        elif a_bigram_list[i] < b_bigram_list[j]:\n","            i += 1\n","        else:\n","            j += 1\n","    \n","    score = float(2*matches)/float(lena + lenb)\n","    return score\n","\n","def scoreRow(row):\n","    return dice_coefficient(row['__TEXT1__'],row['__TEXT2__'])"]},{"cell_type":"code","execution_count":2,"metadata":{},"outputs":[],"source":["from ayx import Alteryx\n","\n","df = Alteryx.read(\"#1\")\n","df['__DICE_COEFFICIENT__'] = df.apply(scoreRow, axis=1)\n","Alteryx.write(df, 1)"]},{"cell_type":"code","execution_count":null,"metadata":{},"outputs":[],"source":[]}],"metadata":{"kernelspec":{"display_name":"designerbasetools_venv","language":"python","name":"designerbasetools_venv"},"language_info":{"codemirror_mode":{"name":"ipython","version":3},"file_extension":".py","mimetype":"text/x-python","name":"python","nbconvert_exporter":"python","pygments_lexer":"ipython3","version":"3.8.5"}},"nbformat":4,"nbformat_minor":2}]]></Notebook>

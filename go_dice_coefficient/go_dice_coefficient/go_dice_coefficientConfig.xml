@@ -1,5 +1,5 @@
 <AlteryxJavaScriptPlugin>
-	<EngineSettings EngineDll="go_dice_coefficient" EngineDllEntryPoint="PluginEntry" SDKVersion="10.1" ToolFamily="ayx_builders" />
+	<EngineSettings EngineDll="go_dice_coefficient.dll" EngineDllEntryPoint="PluginEntry" SDKVersion="10.1" ToolFamily="ayx_builders" />
 	<GuiSettings Html="index.html" Icon="icon.png" SDKVersion="10.1">
 		<InputConnections>
 			<Connection AllowMultiple="False" Label="" Name="Input" Optional="False" Type="Connection" />
