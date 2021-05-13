@@ -34,6 +34,10 @@ func TestScoreCalc(t *testing.T) {
 	if score != 1.0 {
 		t.Fatalf(`expected 1 but got %v`, score)
 	}
+	score = dc.CalculateDiceCoefficient(``, `Thomas Larsen`)
+	if score != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, score)
+	}
 }
 
 func TestEndToEnd(t *testing.T) {
