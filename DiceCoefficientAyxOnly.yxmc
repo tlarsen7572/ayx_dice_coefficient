@@ -1,0 +1,1498 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="66" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="8" />
+              <Fields>
+                <Field name="Text1" />
+                <Field name="Text2" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>Thomas Larsen</c>
+                  <c>Thomas Larson</c>
+                </r>
+                <r>
+                  <c>A</c>
+                  <c>BCDE</c>
+                </r>
+                <r>
+                  <c>Hello World</c>
+                  <c>How are you</c>
+                </r>
+                <r>
+                  <c />
+                  <c>Something</c>
+                </r>
+                <r>
+                  <c>night</c>
+                  <c>nacht</c>
+                </r>
+                <r>
+                  <c>exact</c>
+                  <c>exact</c>
+                </r>
+                <r>
+                  <c>AA</c>
+                  <c>AAAA</c>
+                </r>
+                <r>
+                  <c>AAAA</c>
+                  <c>AAAAAA</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Input</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Text1" size="13" source="TextInput:" type="V_String" />
+            <Field name="Text2" size="13" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>OutputField</Name>
+          <DefaultAnnotationText>OutputField</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="198" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>Text1</Name>
+          <DefaultAnnotationText>Text1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="306" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>Text2</Name>
+          <DefaultAnnotationText>Text2</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="258" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[%Question.Text1%]" field="__TEXT1__" size="1073741823" type="V_WString" />
+            <FormulaField expression="[%Question.Text2%]" field="__TEXT2__" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Texts
+]]></AnnotationText>
+          <DefaultAnnotationText><![CDATA[__TEXT1__ = [%Question.Text1%]
+__TEXT2__ = [%Question.Text2%]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Text1" size="13" source="TextInput:" type="V_String" />
+            <Field name="Text2" size="13" source="TextInput:" type="V_String" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="354" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="__RECORD__" selected="True" />
+            <SelectField field="__TEXT1__" selected="True" />
+            <SelectField field="__TEXT2__" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="162" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>__RECORD__</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int64</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Text1" size="13" source="TextInput:" type="V_String" />
+            <Field name="Text2" size="13" source="TextInput:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="738" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Error</ErrorWarn>
+          <KeyFields>
+            <Field field="__RECORD__" />
+          </KeyFields>
+          <DataFields>
+            <Field field="__RECORD__" selected="False" />
+            <Field field="__TEXT1__" selected="True" />
+            <Field field="__TEXT2__" selected="True" />
+            <Field field="*Unknown" selected="False" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="Value" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="930" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>__BIGRAM__</Field>
+          <RegExExpression value="(.)(?=.)" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="True" />
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="RegExOut1" type="V_WString" size="1073741823" />
+          </ParseComplex>
+          <Match>
+            <Field>Name_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="Value" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [Value]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="450" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>IsEmpty([__TEXT1__]) || IsEmpty([__TEXT2__])</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Blank/Null</AnnotationText>
+          <DefaultAnnotationText>IsEmpty([__TEXT1__]) || IsEmpty([__TEXT2__])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="546" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="0.0" field="__SCORE__" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Score=0
+]]></AnnotationText>
+          <DefaultAnnotationText><![CDATA[__SCORE__ = 0.0
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+            <Field name="__SCORE__" source="Formula: 0.0" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="546" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[__TEXT1__] = [__TEXT2__]</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Exact</AnnotationText>
+          <DefaultAnnotationText>[__TEXT1__] = [__TEXT2__]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="642" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="1.0" field="__SCORE__" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Score=1</AnnotationText>
+          <DefaultAnnotationText><![CDATA[__SCORE__ = 1.0
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+            <Field name="__SCORE__" source="Formula: 1.0" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="642" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Length([__TEXT1__]) == 1 ||
+Length([__TEXT2__]) == 1</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>If either len is 1, cannot possibly match</AnnotationText>
+          <DefaultAnnotationText>Length([__TEXT1__]) == 1 ||
+Length([__TEXT2__]) == 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="738" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="0.0" field="__SCORE__" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Score=0
+]]></AnnotationText>
+          <DefaultAnnotationText><![CDATA[__SCORE__ = 0.0
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+            <Field name="__SCORE__" source="Formula: 0.0" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="990" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Error</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__TEXT1__" size="1073741823" source="Formula: [Text1]" type="V_WString" />
+            <Field name="__TEXT2__" size="1073741823" source="Formula: [Text2]" type="V_WString" />
+            <Field name="__SCORE__" source="Formula: (Multiple Sources)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="834" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Value]" field="__BIGRAM__" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>First Bigram Digit</AnnotationText>
+          <DefaultAnnotationText><![CDATA[__BIGRAM__ = [Value]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="Value" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [Value]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1026" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>__RECORD__</UpdateField_Name>
+          <CreateField_Name>__BIGRAM_END__</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:__BIGRAM_END__]+1</Expression>
+          <GroupByFields>
+            <Field field="__RECORD__" />
+            <Field field="Name" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Bigram End Position</AnnotationText>
+          <DefaultAnnotationText>[Row-1:__BIGRAM_END__]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="Value" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [Value]" type="V_WString" />
+            <Field description="Formula: [Row-1:__BIGRAM_END__]+1" name="__BIGRAM_END__" source="Formula: [Row-1:__BIGRAM_END__]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+            <Field field="Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1122" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" field="__BIGRAM__" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Full Bigram</AnnotationText>
+          <DefaultAnnotationText><![CDATA[__BIGRAM__ = [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="Value" size="1073741823" source="Formula: (Multiple Sources)" type="V_WString" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+            <Field description="Formula: [Row-1:__BIGRAM_END__]+1" name="__BIGRAM_END__" source="Formula: [Row-1:__BIGRAM_END__]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+            <Field field="Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1218" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="__RECORD__" action="GroupBy" rename="__RECORD__" />
+            <SummarizeField field="__BIGRAM_END__" action="Count" rename="Total Bigrams" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Total Bigrams</AnnotationText>
+          <DefaultAnnotationText>Total Bigrams</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Total Bigrams" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1218" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="__RECORD__" selected="True" />
+            <SelectField field="Name" selected="True" />
+            <SelectField field="__BIGRAM__" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+            <Field field="Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1410" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Name</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-05-13 06:54:28</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>__TEXT1__</Operand>
+              <StartDate>2021-05-13 06:54:28</StartDate>
+              <EndDate>2021-05-13 06:54:28</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Split</AnnotationText>
+          <DefaultAnnotationText>[Name] = "__TEXT1__"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+            <Field description="Formula: [Row-1:__BIGRAM_POS]+1" name="__BIGRAM_POS" source="Formula: [Row-1:__BIGRAM_POS]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+            <Field field="Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+            <Field description="Formula: [Row-1:__BIGRAM_POS]+1" name="__BIGRAM_POS" source="Formula: [Row-1:__BIGRAM_POS]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+            <Field field="Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1506" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="__RECORD__" />
+            <Field field="__BIGRAM__" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="__RECORD__" />
+            <Field field="__BIGRAM__" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left___RECORD__" selected="True" input="Left_" />
+                <SelectField field="Left___BIGRAM_POS" selected="True" input="Left_" />
+                <SelectField field="Right___RECORD__" selected="False" rename="Right___RECORD__" input="Right_" />
+                <SelectField field="Right_Name" selected="False" rename="Right_Name" input="Right_" />
+                <SelectField field="Right___BIGRAM__" selected="False" rename="Right___BIGRAM__" input="Right_" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+            <Field description="Formula: [Row-1:__BIGRAM_POS]+1" name="__BIGRAM_POS" source="Formula: [Row-1:__BIGRAM_POS]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="__RECORD__" />
+            <Field field="__BIGRAM__" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field description="Formula: [Row-1:__BIGRAM_POS]+1" name="__BIGRAM_POS" source="Formula: [Row-1:__BIGRAM_POS]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="__RECORD__" />
+            <Field field="__BIGRAM__" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1602" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="__RECORD__" action="GroupBy" rename="__RECORD__" />
+            <SummarizeField field="__BIGRAM_POS" action="CountDistinct" rename="Matching Bigrams" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Matches</AnnotationText>
+          <DefaultAnnotationText>Matches</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Matching Bigrams" source="Summarize: CountDistinct - __BIGRAM_POS" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1698" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="__RECORD__" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="__RECORD__" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Matching Bigrams" selected="True" input="Left_" />
+                <SelectField field="Right___RECORD__" selected="True" input="Right_" />
+                <SelectField field="Right_Total Bigrams" selected="True" input="Right_" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Matching Bigrams" source="Summarize: CountDistinct - __BIGRAM_POS" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="__RECORD__" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="Matching Bigrams" source="Summarize: CountDistinct - __BIGRAM_POS" type="Int64" />
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Total Bigrams" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Total Bigrams" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="__RECORD__" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1086" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="__RECORD__" selected="True" />
+            <SelectField field="__SCORE__" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="__SCORE__" source="Formula: (Multiple Sources)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1890" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="(2*[Matching Bigrams]) / [Total Bigrams]" field="__SCORE__" size="8" type="Double" />
+            <FormulaField expression="IF   IsNull([__SCORE__])&#xA;THEN 0&#xA;ELSE [__SCORE__]&#xA;ENDIF" field="__SCORE__" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Score</AnnotationText>
+          <DefaultAnnotationText>__SCORE__ = (2*[Matching Bigrams]) / [Total Bigrams]
+__SCORE__ = IF   IsNull([__...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Matching Bigrams" source="Summarize: CountDistinct - __BIGRAM_POS" type="Int64" />
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Total Bigrams" source="Summarize: Count" type="Int64" />
+            <Field name="__SCORE__" source="Formula: IF   IsNull([__SCORE__])&#xA;THEN 0&#xA;ELSE [__SCORE__]&#xA;ENDIF" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1986" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="__RECORD__" selected="True" />
+            <SelectField field="__SCORE__" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="__SCORE__" source="Formula: IF   IsNull([__SCORE__])&#xA;THEN 0&#xA;ELSE [__SCORE__]&#xA;ENDIF" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="2082" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Error</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="(Multiple Sources)" type="Int64" />
+            <Field name="__SCORE__" source="Formula: (Multiple Sources)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="2178" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="__RECORD__" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="__RECORD__" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right___RECORD__" selected="False" rename="Right___RECORD__" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Text1" size="13" source="TextInput:" type="V_String" />
+            <Field name="Text2" size="13" source="TextInput:" type="V_String" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="__RECORD__" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Text1" size="13" source="TextInput:" type="V_String" />
+            <Field name="Text2" size="13" source="TextInput:" type="V_String" />
+            <Field name="__SCORE__" source="Formula: (Multiple Sources)" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="__RECORD__" source="(Multiple Sources)" type="Int64" />
+            <Field name="__SCORE__" source="Formula: (Multiple Sources)" type="Double" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="__RECORD__" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2274" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="__RECORD__" selected="False" />
+            <SelectField field="__SCORE__" selected="True" rename="%Question.OutputField%" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Text1" size="13" source="TextInput:" type="V_String" />
+            <Field name="Text2" size="13" source="TextInput:" type="V_String" />
+            <Field name="Score" source="Formula: (Multiple Sources)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="2370" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1314" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>__RECORD__</UpdateField_Name>
+          <CreateField_Name>__BIGRAM_POS</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:__BIGRAM_POS]+1</Expression>
+          <GroupByFields>
+            <Field field="__RECORD__" />
+            <Field field="Name" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Bigram Position</AnnotationText>
+          <DefaultAnnotationText>[Row-1:__BIGRAM_POS]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__RECORD__" source="RecordID: Starting Value=1" type="Int64" />
+            <Field name="Name" size="9" source="Transpose:" type="String" />
+            <Field name="__BIGRAM__" size="1073741823" source="Formula: [__BIGRAM__] + Substring([Value],[__BIGRAM_END__],1)" type="V_WString" />
+            <Field description="Formula: [Row-1:__BIGRAM_POS]+1" name="__BIGRAM_POS" source="Formula: [Row-1:__BIGRAM_POS]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="__RECORD__" order="Asc" />
+            <Field field="Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1794" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Matching Bigrams" source="Summarize: CountDistinct - __BIGRAM_POS" type="Int64" />
+            <Field name="__RECORD__" source="Summarize: GroupBy - __RECORD__" type="Int64" />
+            <Field name="Total Bigrams" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection Wireless="True">
+      <Origin ToolID="2" Connection="Question" />
+      <Destination ToolID="7" Connection="Question Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="2" Connection="Question" />
+      <Destination ToolID="8" Connection="Question Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="36" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="True" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="False" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="True" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="False" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="True" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="False" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="31" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="True" />
+      <Destination ToolID="29" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="False" />
+      <Destination ToolID="29" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Join" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="31" Connection="Join" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="31" Connection="Right" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Join" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>OutputField</Name>
+        <Value>Score</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Text1</Name>
+        <Value>Text1</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Text2</Name>
+        <Value>Text2</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (38)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="False" />
+      <Name>Dice Coefficient</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Text 1</Description>
+              <Name>Text1</Name>
+              <ToolId value="7" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>MacroField</Mode>
+              <MacroField_InputTool value="2" />
+              <Field_IncludeNone value="False" />
+              <MacroField_FilterTypes>String,WString,V_String,V_WString</MacroField_FilterTypes>
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Text 2</Description>
+              <Name>Text2</Name>
+              <ToolId value="8" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>MacroField</Mode>
+              <MacroField_InputTool value="2" />
+              <Field_IncludeNone value="False" />
+              <MacroField_FilterTypes>String,WString,V_String,V_WString</MacroField_FilterTypes>
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Output Field Name</Description>
+              <Name>OutputField</Name>
+              <ToolId value="3" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (38)</Name>
+              <ToolId value="38" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="True" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="38" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
