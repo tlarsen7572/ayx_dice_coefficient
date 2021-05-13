@@ -2,6 +2,21 @@ package main
 
 import "sort"
 
+func CalculateDiceCoefficient(text1 string, text2 string) float64 {
+	if text1 == `` || text2 == `` {
+		return 0
+	}
+	if text1 == text2 {
+		return 1
+	}
+	if len(text1) == 0 || len(text2) == 0 {
+		return 0
+	}
+	bigrams1 := generateSortedBigrams(text1)
+	bigrams2 := generateSortedBigrams(text2)
+	return scoreBigrams(bigrams1, bigrams2)
+}
+
 type bigram struct {
 	digit1 rune
 	digit2 rune
@@ -30,19 +45,7 @@ func generateSortedBigrams(text string) []bigram {
 	return bigrams
 }
 
-func CalculateDiceCoefficient(text1 string, text2 string) float64 {
-	if text1 == `` || text2 == `` {
-		return 0
-	}
-	if text1 == text2 {
-		return 1
-	}
-	if len(text1) == 0 || len(text2) == 0 {
-		return 0
-	}
-	bigrams1 := generateSortedBigrams(text1)
-	bigrams2 := generateSortedBigrams(text2)
-
+func scoreBigrams(bigrams1 []bigram, bigrams2 []bigram) float64 {
 	i1 := 0
 	i2 := 0
 	matches := 0
