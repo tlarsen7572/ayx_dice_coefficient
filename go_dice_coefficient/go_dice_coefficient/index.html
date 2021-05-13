@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="padding:20px">
+<head>
+    <meta charset="utf-8">
+    <title>Dice Coefficient</title>
+    <script type="text/javascript">
+        document.write('<link rel="import" href="' + window.Alteryx.LibDir + '2/lib/includes.html">');
+    </script>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend class='blueTitle'>XMSG("Dice Coefficient")</legend>
+        <div class=''>
+            <label>XMSG("Text 1:")</label>
+            <ayx data-ui-props="{type: 'DropDown'}" data-item-props="{dataName: 'Text1', dataType: 'FieldSelector', fieldType: 'String'}"></ayx>
+            <label>XMSG("Text 2:")</label>
+            <ayx data-ui-props="{type: 'DropDown'}" data-item-props="{dataName: 'Text2', dataType: 'FieldSelector', fieldType: 'String'}"></ayx>
+            <label>XMSG("Output Field:")</label>
+            <ayx data-ui-props="{type: 'TextBox'}" data-item-props="{dataName: 'OutputField', dataType: 'SimpleString'}"></ayx>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>

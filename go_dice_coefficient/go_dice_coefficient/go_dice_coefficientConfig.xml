@@ -1,0 +1,22 @@
+<AlteryxJavaScriptPlugin>
+	<EngineSettings EngineDll="go_dice_coefficient" EngineDllEntryPoint="PluginEntry" SDKVersion="10.1" ToolFamily="ayx_builders" />
+	<GuiSettings Html="index.html" Icon="icon.png" SDKVersion="10.1">
+		<InputConnections>
+			<Connection AllowMultiple="False" Label="" Name="Input" Optional="False" Type="Connection" />
+		</InputConnections>
+		<OutputConnections>
+			<Connection AllowMultiple="False" Label="" Name="Output" Optional="False" Type="Connection" />
+		</OutputConnections>
+	</GuiSettings>
+	<Properties>
+		<MetaInfo>
+			<Name>Dice Coefficient (Go)</Name>
+			<Description>Calculate the dice coefficient between two strings</Description>
+			<ToolVersion>1.0</ToolVersion>
+			<CategoryName>Laboratory</CategoryName>
+			<SearchTags>Go,Dice Coefficient</SearchTags>
+			<Author>tlarsendataguy</Author>
+			<Copyright>2021</Copyright>
+		</MetaInfo>
+	</Properties>
+</AlteryxJavaScriptPlugin>

@@ -1,0 +1,8 @@
+Text1        |Text2
+V_WString;100|V_WString;100
+night        |nacht
+Thomas Larsen|Thomas Larson
+""           |"Hello World"
+             |"Hello World"
+AA           |AAAA
+12121212     |12345678
