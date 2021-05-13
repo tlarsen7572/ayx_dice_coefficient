@@ -3,6 +3,7 @@ package main_test
 import (
 	"encoding/xml"
 	"github.com/tlarsen7572/goalteryx/sdk"
+	"math"
 	"testing"
 )
 import dc "go_dice_coefficient"
@@ -46,7 +47,10 @@ func TestScoreCalc(t *testing.T) {
 	if score != 0.0 {
 		t.Fatalf(`expected 0 but got %v`, score)
 	}
-
+	score = dc.CalculateDiceCoefficient(`Thomas Larsen`, `Thomas Larson`)
+	if math.Abs(score-0.83333) > 0.0001 {
+		t.Fatalf(`expected 0.833333333333333 but got %v`, score)
+	}
 }
 
 func TestEndToEnd(t *testing.T) {
